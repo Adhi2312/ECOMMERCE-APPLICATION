@@ -1,0 +1,101 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <style>
+            .items{
+                display: flex;
+                flex-direction: row;
+
+
+            }
+            img{
+                height: 200px;
+                width:200px;
+            }
+            .it{
+                background-color:rgb(245, 241, 241);
+                width:200px;
+                padding: 30px;
+                margin: 10px;
+                padding-bottom: 10px;
+                box-shadow: 10px black;
+            }
+        </style>
+
+    </head>
+    <body>
+
+        <!-- <audio controls src=""></audio> -->
+            <!-- <source src="{% static '/audio/pichhaiedu.mp3' %}" type="audio/mp3">
+            <!-- <source src="horse.mp3" type="a"> 
+           
+          </audio> -->
+
+        <h1>Create new Item</h1>
+        <form method="POST">
+            {% csrf_token %}
+        <input type="name" placeholder="product name" name="product name"/>
+        <input type="description" name="description" placeholder="product description"/>
+        <input type="text" name="type" placeholder="enter product type"/>
+        <input type="number" name="price" placeholder="enter product price">
+        <button type="submit">create</button>
+    </form>
+    <h2>face</h2>
+    <div class="item1">
+        <div>
+            <h2>{{i.Item_type}}</h2>
+        </div>
+        <div class="items">
+        {% for i in items %}
+        
+           
+            <div class="it">
+            <img src="{{i.Item_image}}">
+            <p>{{i.Item_name}}</p>
+            <p>{{i.Item_description}}</p>
+            <p>₹{{i.Item_price}}</p>
+            
+            
+            </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+
+    
+
+    </div>
+    
+    
+   <div class="item1">
+    
+    <div>
+        <h2>{{i.Item_type}}</h2>
+    </div>
+    <div class="items">
+    {% for i in face %}
+    
+       
+        <div class="it">
+        <img src="{{i.Item_image}}">
+        <p>{{i.Item_name}}</p>
+        <p>{{i.Item_description}}</p>
+        <p>₹{{i.Item_price}}</p>
+        
+        
+        </div>
+        {% endfor %}
+        
+    </div>
+    
+    
+    <!-- <h2>{{i.Item_image}}</h2> -->
+   
+    </div>
+
+    </body>
+    
+</html>
